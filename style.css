@@ -2,6 +2,7 @@
     font-family: myfont;
     letter-spacing: 1.5vw;
     src: url(./Assets/ClashDisplay/ClashDisplay-Regular.woff);
+    font-display: swap;
 }
 
 :root {
@@ -38,6 +39,8 @@ body::-webkit-scrollbar {
     z-index: 9999;
     transform: translate(-50%, -50%);
     mix-blend-mode: difference;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 #main {
@@ -202,6 +205,8 @@ a {
     z-index: 50;
     will-change: transform, opacity;
     pointer-events: none;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 #projekts {
@@ -264,8 +269,7 @@ a {
 
 #profile-pic img {
     width: 15vw;
-    border-radius: 50%
-    
+    border-radius: 50%;
 }
 
 #info {
@@ -334,6 +338,7 @@ button:hover {
     left: 88vw;
     transition: transform 0.3s ease-in-out;
     transform-origin: center center;
+    will-change: transform;
 }
 
 .topScroll:hover {
@@ -363,4 +368,655 @@ button:hover {
 .links {
     display: flex;
     gap: 3vw;
+}
+
+/* ----------------ACCESSIBILITY & FOCUS STATES-------------------- */
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+#menu:focus {
+    outline: 2px solid var(--p-color);
+    outline-offset: 4px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+#menu:focus:not(:focus-visible) {
+    outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+#menu:focus-visible {
+    outline: 2px solid var(--p-color);
+    outline-offset: 4px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: var(--p-color);
+    color: var(--s-color);
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 1em;
+}
+
+/* ----------------RESPONSIVE DESIGN-------------------- */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    :root {
+        --p-fontSize: 18px;
+    }
+    
+    #hero-section {
+        padding: 32px;
+    }
+    
+    #title1 {
+        font-size: 80px;
+        line-height: 72px;
+    }
+    
+    #title2 {
+        left: 50%;
+        font-size: 16px;
+    }
+    
+    #right-content h3 {
+        font-size: 16px;
+    }
+    
+    #hero-bottom h3 {
+        font-size: 16px;
+    }
+    
+    #project-section {
+        padding: 32px;
+    }
+    
+    .project-title {
+        font-size: 48px;
+    }
+    
+    .date h3 {
+        font-size: 16px;
+    }
+    
+    #profile-section {
+        padding: 32px;
+    }
+    
+    #content {
+        padding: 40px 32px;
+        gap: 48px;
+    }
+    
+    #profile-pic {
+        margin-left: 32px;
+    }
+    
+    #profile-pic img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    #para {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    button {
+        font-size: 16px;
+        padding: 14px 28px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    :root {
+        --p-fontSize: 16px; /* Fixed size for better readability */
+    }
+    
+    /* Hero section mobile */
+    #hero-section {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+    
+    #logo {
+        font-size: 16px;
+    }
+    
+    .menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--s-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin-top: 0;
+        font-size: 24px;
+        z-index: 9998;
+        padding: 20px;
+    }
+    
+    .menu a {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    
+    #menu {
+        font-size: 16px;
+        z-index: 9999;
+        cursor: pointer;
+    }
+    
+    #hero-content {
+        margin-top: 60px;
+    }
+    
+    #title1 {
+        font-size: 56px;
+        line-height: 52px;
+        letter-spacing: 2px;
+    }
+    
+    #title2 {
+        position: static;
+        margin-top: 20px;
+        font-size: 14px;
+        left: 0;
+    }
+    
+    #right-content {
+        align-items: flex-start;
+        top: 40px;
+        margin-top: 40px;
+    }
+    
+    #right-content h3 {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    #hero-bottom {
+        flex-direction: column;
+        gap: 24px;
+        top: 60px;
+        margin-top: 60px;
+        position: static;
+    }
+    
+    #hero-bottom a {
+        width: 100%;
+    }
+    
+    #hero-bottom h3 {
+        font-size: 14px;
+    }
+    
+    #hero-bottom i {
+        font-size: 18px;
+        top: 2px;
+    }
+    
+    #down-arrow {
+        align-self: center;
+        margin-top: 40px;
+    }
+    
+    #arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #arrow i {
+        font-size: 20px;
+    }
+    
+    /* Project section mobile */
+    #project-section {
+        padding: 20px;
+        margin-top: 60px;
+    }
+    
+    .projekts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    .projekts img {
+        display: none; /* Hide hover images on mobile */
+    }
+    
+    .project-title {
+        font-size: 32px;
+    }
+    
+    .project-title h1 {
+        font-size: 32px;
+    }
+    
+    .date h3 {
+        font-size: 14px;
+    }
+    
+    /* Profile section mobile */
+    #profile-section {
+        padding: 20px;
+        margin-top: 60px;
+    }
+    
+    #content {
+        flex-direction: column;
+        padding: 20px 0;
+        gap: 32px;
+    }
+    
+    #profile-pic {
+        margin-left: 0;
+        align-self: center;
+    }
+    
+    #profile-pic img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    #info {
+        gap: 20px;
+    }
+    
+    #about {
+        font-size: 20px;
+    }
+    
+    #para {
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0;
+    }
+    
+    #para p {
+        text-align: left;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 300px;
+        padding: 16px 32px;
+        font-size: 16px;
+        border-radius: 30px;
+        min-height: 48px; /* Touch-friendly */
+    }
+    
+    #extras {
+        margin-top: 60px;
+    }
+    
+    #extras h2 {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    
+    #extras h3 {
+        font-size: 16px;
+    }
+    
+    #extras i {
+        font-size: 18px;
+    }
+    
+    #extras a {
+        display: block;
+        padding: 12px 0;
+    }
+    
+    .topScroll {
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        width: 56px;
+        height: 56px;
+    }
+    
+    .ri-arrow-up-line {
+        font-size: 28px;
+    }
+    
+    /* Footer mobile */
+    #footer-section {
+        padding: 20px;
+        margin-top: 60px;
+    }
+    
+    #footer-content {
+        flex-direction: column;
+        gap: 32px;
+    }
+    
+    .links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .links h3 {
+        font-size: 14px;
+    }
+    
+    .links a {
+        padding: 8px 0;
+        display: block;
+    }
+    
+    /* Hide custom cursor on mobile */
+    #cursor {
+        display: none;
+    }
+    
+    /* Improve touch targets */
+    a, button, #menu {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Better text wrapping */
+    h1, h2, h3, p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    :root {
+        --p-fontSize: 14px;
+    }
+    
+    #hero-section {
+        padding: 16px;
+    }
+    
+    #title1 {
+        font-size: 48px;
+        line-height: 44px;
+        letter-spacing: 1px;
+    }
+    
+    #title2 {
+        font-size: 12px;
+    }
+    
+    #right-content h3 {
+        font-size: 12px;
+    }
+    
+    #hero-bottom h3 {
+        font-size: 13px;
+    }
+    
+    .project-title {
+        font-size: 28px;
+    }
+    
+    .project-title h1 {
+        font-size: 28px;
+    }
+    
+    #profile-pic img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #para {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    button {
+        font-size: 14px;
+        padding: 14px 28px;
+    }
+    
+    .topScroll {
+        width: 48px;
+        height: 48px;
+        right: 16px;
+        bottom: 16px;
+    }
+    
+    .ri-arrow-up-line {
+        font-size: 24px;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    #hero-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 16px;
+    }
+    
+    #title1 {
+        font-size: 40px;
+        line-height: 38px;
+    }
+    
+    #hero-content {
+        margin-top: 40px;
+    }
+    
+    #right-content {
+        top: 20px;
+        margin-top: 20px;
+    }
+    
+    #hero-bottom {
+        margin-top: 40px;
+        gap: 16px;
+    }
+    
+    #down-arrow {
+        margin-top: 20px;
+    }
+}
+
+/* Extra small devices (very small phones) */
+@media (max-width: 360px) {
+    #title1 {
+        font-size: 40px;
+        line-height: 38px;
+    }
+    
+    .project-title h1 {
+        font-size: 24px;
+    }
+    
+    #profile-pic img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    #cursor {
+        display: none;
+    }
+}
+
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    #hero-section {
+        min-height: -webkit-fill-available;
+    }
+    
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Android Chrome specific fixes */
+@media screen and (max-width: 768px) {
+    /* Fix for address bar hiding */
+    #hero-section {
+        min-height: calc(100vh - 56px);
+    }
+}
+
+/* High DPI screens (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #profile-pic img,
+    .projekts img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Dark mode support for mobile */
+@media (prefers-color-scheme: dark) {
+    /* Already dark by default, but ensure consistency */
+    body {
+        background-color: var(--s-color);
+        color: var(--p-color);
+    }
+}
+
+/* Improve scrolling performance on mobile */
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: rgba(233, 233, 233, 0.1);
+        -webkit-touch-callout: none;
+    }
+    
+    /* Smooth momentum scrolling */
+    body {
+        -webkit-overflow-scrolling: touch;
+        overflow-scrolling: touch;
+    }
+    
+    /* Prevent text size adjustment on orientation change */
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    /* Better font rendering on mobile */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* Tablet portrait */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    #title1 {
+        font-size: 72px;
+        line-height: 68px;
+    }
+    
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #profile-pic {
+        margin-left: 0;
+    }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    #hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    #title1 {
+        font-size: 64px;
+        line-height: 60px;
+    }
+}
+
+/* Safe area insets for notched devices (iPhone X+) */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    #nav {
+        padding-top: max(20px, env(safe-area-inset-top));
+    }
+    
+    #footer-section {
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}
+
+/* Foldable devices support */
+@media (horizontal-viewport-segments: 2) {
+    #content {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* Print styles */
+@media print {
+    #cursor,
+    .topScroll,
+    #menu,
+    #down-arrow {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
 }

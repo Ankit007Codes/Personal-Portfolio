@@ -3,13 +3,53 @@
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="description" content="RAj Bardhan Singh - B.Tech CSE Student and Web Developer based in India. Explore my portfolio featuring web development projects including CivicTrack, Netflix Clone, and ContriSpace.">
+        <meta name="keywords" content="web developer, portfolio, B.Tech CSE, frontend developer, RAj Bardhan Singh">
+        <meta name="author" content="RAj Bardhan Singh">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="DevFolio - RAj Bardhan Singh">
+        <meta property="og:description" content="Web Developer Portfolio - B.Tech CSE Student based in India">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://your-portfolio-url.vercel.app/">
+        <meta property="og:image" content="https://your-portfolio-url.vercel.app/Assets/profile.jpg">
+        <meta property="og:image:width" content="300">
+        <meta property="og:image:height" content="300">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="DevFolio - RAj Bardhan Singh">
+        <meta name="twitter:description" content="Web Developer Portfolio - B.Tech CSE Student based in India">
+        <meta name="twitter:image" content="https://your-portfolio-url.vercel.app/Assets/profile.jpg">
+        
+        <!-- Additional SEO -->
+        <link rel="canonical" href="https://your-portfolio-url.vercel.app/">
+        <meta name="theme-color" content="#060606">
+        <link rel="manifest" href="/manifest.json">
+        
+        <!-- Critical CSS inline for faster initial render -->
+        <style>
+            /* Critical above-the-fold styles */
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { background-color: rgb(6, 6, 6); color: rgb(233, 233, 233); overflow-x: hidden; }
+            #hero-section { min-height: 100vh; padding: 2.5vw; }
+        </style>
+        
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="loco.css">
+        <link rel="preload" href="./Assets/ClashDisplay/ClashDisplay-Regular.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
         <link
             href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
             rel="stylesheet" />
-        <title>DevFolio</title>
+        <title>DevFolio - RAj Bardhan Singh | Web Developer Portfolio</title>
     </head>
 
     <body>
@@ -17,13 +57,13 @@
         <div id="main" data-scroll-container>
             <div id="hero-section">
                 <div id="nav">
-                    <a id="logo" href>DevFolio</a>
+                    <a id="logo" href="#hero-section" aria-label="DevFolio Home">DevFolio</a>
                     <div class="menu">
                         <a href="#project-section">WORK</a>
-                        <a href="#">PLAYGROUND</a>
+                        <a href="#project-section">PLAYGROUND</a>
                         <a href="#profile-section">CONTACT</a>
                     </div>
-                    <h2 id="menu" onclick="onclickMenu()">MENU+</h2>
+                    <h2 id="menu" onclick="onclickMenu()" role="button" tabindex="0" aria-label="Toggle navigation menu">MENU+</h2>
                 </div>
                 <div id="hero-content">
                     <h1 id="title1">WEB <br> DEVELOPER</h1>
@@ -34,23 +74,23 @@
                     <h3>AT THIS MOMENT</h3>
                 </div>
                 <div id="hero-bottom">
-                    <a href="https://www.linkedin.com/in/raj-bardhan-singh-4o4" target="_blank">
+                    <a href="https://www.linkedin.com/in/raj-bardhan-singh-4o4" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile - B.Tech CSE Student">
                         <h3>BTECH CSE STUDENT</h3><i
-                            class="ri-arrow-right-up-line"></i>
+                            class="ri-arrow-right-up-line" aria-hidden="true"></i>
                     </a>
-                    <a href="https://github.com/RAj2027" target="_blank">
+                    <a href="https://github.com/RAj2027" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile - My Work and Collaborations">
                         <h3>MY WORK AND COLLABS</h3><i
-                            class="ri-arrow-right-up-line"></i>
+                            class="ri-arrow-right-up-line" aria-hidden="true"></i>
                     </a>
-                    <div id="down-arrow">
+                    <div id="down-arrow" aria-hidden="true">
                         <div id="arrow"><i class="ri-arrow-down-line"></i></div>
                         <div id="arrow"><i class="ri-arrow-down-line"></i></div>
                     </div>
                 </div>
             </div>
             <div id="project-section">
-                <a href="https://civictrack-frontend.vercel.app/home" target="_blank" class="projekts">
-                    <img src="./Assets/havoc.png" alt="image">
+                <a href="https://civictrack-frontend.vercel.app/home" target="_blank" rel="noopener noreferrer" class="projekts" aria-label="CivicTrack Project - Community Issue Tracking Platform">
+                    <img src="./Assets/havoc.png" alt="CivicTrack - Community issue tracking platform screenshot" loading="lazy" width="800" height="450">
                     <div class="project-title">
                         <h1>CIVICTRACK</h1>
                     </div>
@@ -58,8 +98,8 @@
                         <h3>2025</h3>
                     </div>
                 </a>
-                <a href="https://raj2027.github.io/NETFLIX_CLONE" target="_blank" class="projekts">
-                    <img src="./Assets/estudy.png" alt="image">
+                <a href="https://raj2027.github.io/NETFLIX_CLONE" target="_blank" rel="noopener noreferrer" class="projekts" aria-label="Netflix UI Clone Project">
+                    <img src="./Assets/estudy.png" alt="Netflix UI Clone - Streaming interface recreation screenshot" loading="lazy" width="800" height="450">
                     <div class="project-title">
                         <h1>NETFLIX UI CLONE</h1>
                     </div>
@@ -67,8 +107,8 @@
                         <h3>2025</h3>
                     </div>
                 </a>
-                <a href="https://contri-space-4u.vercel.app" target="_blank" class="projekts">
-                    <img src="./Assets/moviethingz.png" alt="image">
+                <a href="https://contri-space-4u.vercel.app" target="_blank" rel="noopener noreferrer" class="projekts" aria-label="ContriSpace Project - Collaborative Development Platform">
+                    <img src="./Assets/moviethingz.png" alt="ContriSpace - Collaborative development space screenshot" loading="lazy" width="800" height="450">
                     <div class="project-title">
                         <h1>CONTRISPACE</h1>
                     </div>
@@ -76,8 +116,8 @@
                         <h3>2025</h3>
                     </div>
                 </a>
-                <a href="#" target="_blank" class="projekts" id="projekts">
-                    <img src="./Assets/yapzone.png" alt="image">
+                <a href="#project-section" class="projekts" id="projekts" aria-label="More Projects">
+                    <img src="./Assets/yapzone.png" alt="Additional projects showcase" loading="lazy" width="800" height="450">
                     <div class="project-title">
                         <h1>PEROJEKTS</h1>
                     </div>
@@ -89,7 +129,7 @@
             <div id="profile-section">
                 <div id="content">
                     <div id="profile-pic">
-                        <img src="./Assets/profile.jpg" alt="pic">
+                        <img src="./Assets/profile.jpg" alt="RAj Bardhan Singh - Web Developer Profile Picture" loading="lazy" width="300" height="300">
                     </div>
                     <div id="info">
                         <h2 id="about">ABOUT ME</h2>
@@ -106,20 +146,20 @@
                             </p>
                         </div>
                         <div id="button">
-                            <button>Let's Talk</button>
+                            <button type="button" aria-label="Contact me - Let's talk about your project">Let's Talk</button>
                         </div>
                     </div>
                 </div>
                 <div id="extras">
                     <h2>one more thing...</h2>
                     <a href="https://www.youtube.com/@sketchyfunk"
-                        target="_blank">
+                        target="_blank" rel="noopener noreferrer" aria-label="Subscribe to my YouTube channel - SketchyFunk">
                         <h3>SUBSCRIBE TO MY YOUTUBE
-                            CHANNEL</h3><i class="ri-arrow-right-up-line"></i>
+                            CHANNEL</h3><i class="ri-arrow-right-up-line" aria-hidden="true"></i>
                     </a>
                 </div>
-                <a class="topScroll" href="#hero-section">
-                    <i class="ri-arrow-up-line"></i>
+                <a class="topScroll" href="#hero-section" aria-label="Scroll back to top">
+                    <i class="ri-arrow-up-line" aria-hidden="true"></i>
                 </a>
 
             </div>
@@ -132,27 +172,27 @@
                     <div class="links">
                         <a
                             href="https://www.linkedin.com/in/raj-bardhan-singh-4o4"
-                            target="_blank">
+                            target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn profile">
                             <h3>LINKEDIN</h3>
                         </a>
-                        <a href="https://github.com/RAj2027" target="_blank">
+                        <a href="https://github.com/RAj2027" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub profile">
                             <h3>GITHUB</h3>
                         </a>
-                        <a href="https://www.instagram.com" target="_blank">
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit my Instagram profile">
                             <h3>INSTAGRAM</h3>
                         </a>
                         <a href="https://in.pinterest.com/not_xpected"
-                            target="_blank">
+                            target="_blank" rel="noopener noreferrer" aria-label="Visit my Pinterest profile">
                             <h3>PINTEREST</h3>
                         </a>
                     </div>
                 </div>
             </div>
             <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+                src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
             <script
-                src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
-            <script src="script.js"></script>
+                src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js" defer></script>
+            <script src="script.js" defer></script>
         </body>
 
     </html>
