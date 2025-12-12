@@ -1,0 +1,11 @@
+# robots.txt for DevFolio
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location (create sitemap.xml separately)
+Sitemap: https://your-portfolio-url.vercel.app/sitemap.xml
