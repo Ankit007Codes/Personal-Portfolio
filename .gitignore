@@ -35,6 +35,8 @@ desktop.ini
 .env
 .env.local
 .env.production
+switch-to-raj.bat
+switch-to-ankit.bat
 
 # Cache
 .cache/
